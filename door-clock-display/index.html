@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Door Clock Display</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="display-root">
+      <canvas id="clock-canvas" aria-label="Particle clock display"></canvas>
+      <div class="hud">
+        <span class="hud-item">드래그: 파티클 밀기</span>
+        <span class="hud-item">탭: 끌림 / 더블탭: 밀림</span>
+        <span class="hud-item">F: 전체화면</span>
+      </div>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

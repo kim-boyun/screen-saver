@@ -1,0 +1,61 @@
+:root {
+  --bg: #06090f;
+  --text-dim: rgba(180, 197, 231, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: #ffffff;
+  font-family:
+    Inter,
+    "Pretendard Variable",
+    "Noto Sans KR",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+.display-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#clock-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.hud {
+  position: fixed;
+  right: clamp(12px, 1.2vw, 24px);
+  bottom: clamp(10px, 1vw, 20px);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: var(--text-dim);
+  font-size: clamp(10px, 0.7vw, 13px);
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hud-item {
+  padding: 0.32rem 0.5rem;
+  border: 1px solid rgba(140, 158, 196, 0.2);
+  border-radius: 999px;
+  background: rgba(2, 5, 12, 0.35);
+  backdrop-filter: blur(2px);
+}

@@ -1,0 +1,66 @@
+{
+  "time": {
+    "use24Hour": true
+  },
+  "palette": {
+    "background": "#06090f",
+    "core": "#d7e5ff",
+    "ambient": "#4a6fa5"
+  },
+  "layout": {
+    "textWidthRatio": 0.82,
+    "textHeightRatio": 0.55,
+    "fontFamily": "'Courier New', Consolas, monospace",
+    "fontWeight": "bold"
+  },
+  "motion": {
+    "particleCount": 900,
+    "ambientRatio": 0.06,
+    "approach": 0.15,
+    "scatterDecay": 0.85,
+    "jitter": 1.2,
+    "wanderSpeed": 0.4,
+    "scatterForce": 0.5
+  },
+  "render": {
+    "sizeMin": 1.4,
+    "sizeMax": 2.0,
+    "coreScale": 1.5,
+    "coreAlpha": 0.8,
+    "glowScale": 4.5,
+    "glowAlpha": 0.1,
+    "ambientScale": 0.5,
+    "ambientAlpha": 0.06,
+    "dprCap": 1,
+    "fps": 30
+  },
+  "background": {
+    "count": 800,
+    "sizeMin": 0.8,
+    "sizeMax": 2.0,
+    "speed": 0.25,
+    "alpha": 0.45,
+    "glowAlpha": 0.1,
+    "glowScale": 4,
+    "linkDist": 130,
+    "linkAlpha": 0.18,
+    "linkWidth": 0.8
+  },
+  "drag": {
+    "force": 3.5,
+    "radius": 110,
+    "clockForceRatio": 0.6,
+    "trailFadeMs": 1200,
+    "trailWidth": 1.5,
+    "trailGlow": 8,
+    "trailColor": "#5a9fff"
+  },
+  "interaction": {
+    "enabled": true,
+    "radius": 160,
+    "burstForce": 10,
+    "pulseDuration": 600,
+    "pulseForce": 3,
+    "dblClickWindow": 280
+  }
+}
