@@ -42,7 +42,8 @@ const DEFAULT_CONFIG = {
     glowScale: 4,
     linkDist: 130,
     linkAlpha: 0.18,
-    linkWidth: 0.8
+    linkWidth: 0.8,
+    homeForce: 0.008
   },
   drag: {
     force: 3.5,
@@ -342,8 +343,9 @@ class ParticleClock {
     const B = this.cfg.background;
     const n = clamp(B.count, 0, 600);
     while (this.bgParticles.length < n) {
+      const x = rand(0, this.w), y = rand(0, this.h);
       this.bgParticles.push({
-        x: rand(0, this.w), y: rand(0, this.h),
+        x, y, hx: x, hy: y,
         vx: 0, vy: 0,
         phase: rand(0, TAU),
         size: rand(B.sizeMin, B.sizeMax)
@@ -359,18 +361,17 @@ class ParticleClock {
   _bgPhysics(ts) {
     const B = this.cfg.background;
     const spd = B.speed;
+    const homeF = B.homeForce || 0.008;
     for (const p of this.bgParticles) {
       p.vx += Math.cos(p.phase + ts * 0.00025) * spd * 0.015;
       p.vy += Math.sin(p.phase + ts * 0.0003) * spd * 0.015;
+      p.vx += (p.hx - p.x) * homeF;
+      p.vy += (p.hy - p.y) * homeF;
       p.x += p.vx;
       p.y += p.vy;
       const s2 = p.vx * p.vx + p.vy * p.vy;
-      p.vx *= s2 > 1 ? 0.88 : 0.99;
-      p.vy *= s2 > 1 ? 0.88 : 0.99;
-      if (p.x < -10) p.x += this.w + 20;
-      else if (p.x > this.w + 10) p.x -= this.w + 20;
-      if (p.y < -10) p.y += this.h + 20;
-      else if (p.y > this.h + 10) p.y -= this.h + 20;
+      p.vx *= s2 > 1 ? 0.88 : 0.96;
+      p.vy *= s2 > 1 ? 0.88 : 0.96;
     }
   }
 
